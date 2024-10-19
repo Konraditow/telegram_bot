@@ -3,7 +3,7 @@
 :put $chatid
 :put $from
 
-:local text "Menghidupkan ulang router dalam 30 detik..."
+:local text "Reiniciando el MODEM en 30 segundos..."
 
 $send chat=$chatid text=$text mode="Markdown"
 
