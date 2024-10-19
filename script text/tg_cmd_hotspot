@@ -90,34 +90,34 @@ if ($paramsLower = "help") do={
 :if ($param1Lower="del") do={
 	if ([:len [ip hotspot user find where name=$param2]] > 0) do={
 		/ip hotspot user remove [find name=$param2]
-		$send chat=$chatid text=("Berhasil menghapus user $param2.") mode="Markdown"
+		$send chat=$chatid text=("Eliminado exitosamente $param2.") mode="Markdown"
 	} else={
-		$send chat=$chatid text=("User $param2 tidak ditemukan") mode="Markdown"
+		$send chat=$chatid text=("Usuario $param2 no encontrado") mode="Markdown"
 	}
 }
 :if ($param1Lower="off") do={
 	if ([:len [ip hotspot user find where name=$param2]] > 0) do={
 		/ip hotspot user disable [find name=$param2]
-		$send chat=$chatid text=("$param2 kini telah dinonaktifkan") mode="Markdown"
+		$send chat=$chatid text=("$param2 Deshabilitado") mode="Markdown"
 	} else={
-		$send chat=$chatid text=("User $param2 tidak ditemukan") mode="Markdown"
+		$send chat=$chatid text=("Usuario $param2 no encontrado") mode="Markdown"
 	}
 }
 :if ($param1Lower="on") do={
 	if ([:len [ip hotspot user find where name=$param2]] > 0) do={
 	/ip hotspot user enable [find name=$param2]
-	$send chat=$chatid text=("$param2 kini telah diaktifkan") mode="Markdown"
+	$send chat=$chatid text=("$param2 Habilitado") mode="Markdown"
 	} else={
-		$send chat=$chatid text=("User $param2 tidak ditemukan") mode="Markdown"
+		$send chat=$chatid text=("Usuario $param2 no encontrado") mode="Markdown"
 	}
 }
 :if ($param1Lower="set") do={
 	if ([:len [ip hotspot user find where name=$param2]] > 0) do={
 		/ip hotspot user set password=$param3 [find name=$param2]
 		/ip hotspot active remove [find name=$param2]
-		$send chat=$chatid text=("Berhasil mengganti profile menjadi $param3.") mode="Markdown"
+		$send chat=$chatid text=("Se cambió correctamente el perfil a $param3.") mode="Markdown"
 	} else={
-		$send chat=$chatid text=("User $param2 tidak ditemukan") mode="Markdown"
+		$send chat=$chatid text=("Usuario $param2 no encontrado") mode="Markdown"
 	}
 }
 :if ($param1Lower="pwd") do={
