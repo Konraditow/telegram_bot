@@ -1,26 +1,25 @@
+# Guión MikroTik: Bot de Telegram
 
-# MikroTik Script: Telegram Bot
+Este _script_ se utiliza para controlar tu MikroTik simplemente usando las redes sociales Telegram. Hay muchos comandos para monitorear, cambiar puntos de acceso, eliminar usuarios de puntos de acceso, agregar nuevas cuentas de puntos de acceso, cambiar contraseñas de usuarios de puntos de acceso, etc.
 
-_Script_ ini digunakan untuk mengontrol MikroTik Anda hanya dengan menggunakan sosial media Telegram. Terdapat banyak perintah untuk memantau, mengubah _hotspot_, menghapus _user hotspot_, menambahkan akun _hotspot_ baru, mengubah _password user hotspot_, dan lain-lain.
+# Lista de contenidos
+- [Descargo de responsabilidad](#descargo de responsabilidad)
+- [Historial de versiones](#version-history)
+- [Instalación](#instalación)
+- [Comandos, Parámetros y Funciones](#comandos-parámetros-y-funciones)
+- [Fuente](#fuente)
 
-# Daftar Isi
-- [Disclaimer](#disclaimer)
-- [Riwayat Versi](#riwayat-versi)
-- [Instalasi](#instalasi)
-- [Perintah-Perintah, Parameter, dan Fungsinya](#perintah-perintah-parameter-dan-fungsinya)
-- [Sumber](#sumber)
+# Descargo de responsabilidad
+Este _script_ es _de código abierto_. Puede modificar, agregar o reducir el contenido de este _script_ siempre que no viole las disposiciones aplicables de la licencia _MIT_. Este _script_ **NO TIENE GARANTÍA** mientras lo utilices. Si tiene problemas durante la instalación o el uso de este _script_, analice y explique cómo ocurrió el problema a través de la función [**Problemas**] (https://github.com/dwichan0905/telegram_bot/issues).
 
-# Disclaimer
-_Script_ ini bersifat _open-source_. Anda dapat memodifikasi, menambah, ataupun mengurangi isi dari _script_ ini selama tidak melanggar ketentuan yang berlaku dalam lisensi _MIT_. _Script_ ini **TIDAK ADA GARANSI** selama Anda menggunakannya. Jika Anda mengalami kendala saat instalasi atau penggunaan _script_ ini, harap didiskusikan dan jelaskan bagaimana masalah tersebut terjadi melalui fitur [**Issues**](https://github.com/dwichan0905/telegram_bot/issues).
+# Contribución
+Las contribuciones a este _repositorio_ se limitan únicamente a los scripts y la documentación de MikroTik. Puede contribuir _bifurcando este repositorio_, creando una nueva _sucursal_, realizando cambios y realizando una _pull request_ a este _repositorio_. Describe lo que agregaste y lo que cambiaste en este _repositorio_. No olvide escribir un script de ayuda en ```tg_cmd_help``` para ayudar si el usuario de este script olvida el comando que tiene que escribir.
 
-# Kontribusi
-Kontribusi pada _repository_ ini hanya terbatas pada MikroTik Script dan Dokumentasi saja. Anda dapat berkontribusi dengan cara _Fork repository ini_, membuat _branch_ baru, lakukan perubahan, dan lakukan _Pull Request_ ke _repository_ ini. Deskripsikan apa saja yang Anda tambahkan dan apa yang Anda ubah di dalam _repository_ ini. Jangan lupa untuk menuliskan script bantuan di ```tg_cmd_help``` untuk membantu apabila pengguna script ini lupa dengan perintah yang harus ia tuliskan..
-
-# Riwayat Versi
-#### 1.3.1 (27 Oktober 2020)
-- menambahkan perintah ``/monitoring`` yang berfungsi untuk mengamati transfer rate dan received rate dari interface, juga bisa untuk mengamati penggunaan CPU serta RAM
-- menambah perintah ``/stop`` untuk menghentikan proses monitoring yang sedang berjalan di telegram
-video: [YouTube](https://www.youtube.com/watch?v=0HEuqgMZVp4)
+# Historial de versiones
+#### 1.3.1 (27 de octubre de 2020)
+- Se agregó el comando ``/monitoring`` que funciona para observar la tasa de transferencia y la tasa de recepción desde la interfaz, y también puede observar el uso de CPU y RAM.
+- se agregó el comando ``/stop`` para detener el proceso de monitoreo que se ejecuta actualmente en Telegram
+vídeo: [YouTube](https://www.youtube.com/watch?v=0HEuqgMZVp4)
 
 #### 1.3 (8 Oktober 2020)
 - mengeluarkan setiap script ke dalam versi teks agar bisa dibaca langsung tanpa harus melakukan import ke mikrotik
