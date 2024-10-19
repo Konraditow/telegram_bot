@@ -2,7 +2,7 @@
 # Telegram bot API, VVS/BlackVS 2017
 #                                Config file
 ######################################
-#:log info "telegram configuration file has been loaded";
+:log info "telegram configuration file has been loaded";
 
 # to use config insert next lines:
 #:local fconfig [:parse [/system script get tg_config source]]
@@ -15,9 +15,9 @@
 
 :local config {
 "Command"="telegram";
-	"botAPI"="xxxxxxxxxx:xxxxxxxxxxxxxxx-xxxxxxxxxxx";
-	"defaultChatID"="xxxxxxxxx";
-	"trusted"="xxxxxxxxx, -xxxxxxxxx";
+	"botAPI"="7452047079:AAFn0ZaMYpqlukVdPqg_-EQu1IBNMIXkRrE";
+	"defaultChatID"="1585459760";
+	"trusted"="1585459760";
 	"storage"="";
 	"timeout"=5;
 	"refresh_active"=15;
