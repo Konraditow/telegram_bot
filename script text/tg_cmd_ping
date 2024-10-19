@@ -30,14 +30,14 @@
 
 :local ploss (100 - (($pin * 100) / $pout))
 
-:local logmsg ("Ping Average for $param2 - ".[:tostr $avgRtt]."ms - packet loss: ".[:tostr $ploss]."%")
+:local logmsg ("Promedio de ping para $param2 - ".[:tostr $avgRtt]."ms - pérdida de paquetes: ".[:tostr $ploss]."%")
 
 :log info $logmsg
 
-:local text "Router ID:* $[/system identity get name] * %0A\
-Date : _$datetime_%0A\
+:local text "ID:* $[/system identity get name] * %0A\
+Fecha: _$datetime_%0A\
 IP: _$param2_%0A\
-Result:%0A_$logmsg_"
+Resultado:%0A_$logmsg_"
 $send chat=$chatid text=$text mode="Markdown"
 :return true
 } else={
@@ -62,14 +62,14 @@ $send chat=$chatid text=$text mode="Markdown"
 
 :local ploss (100 - (($pin * 100) / $pout))
 
-:local logmsg ("Ping Average for 8.8.8.8 - ".[:tostr $avgRtt]."ms - packet loss: ".[:tostr $ploss]."%")
+:local logmsg ("Promedio de ping para 8.8.8.8 - ".[:tostr $avgRtt]."ms - pérdida de paquetes: ".[:tostr $ploss]."%")
 
 :log info $logmsg
 
-:local text "Router ID:* $[/system identity get name] * %0A\
-Date : _$datetime_%0A\
+:local text "ID:* $[/system identity get name] * %0A\
+Fecha: _$datetime_%0A\
 IP: _8.8.8.8_%0A\
-Result:%0A_$logmsg_"
+Resultado:%0A_$logmsg_"
 $send chat=$chatid text=$text mode="Markdown"
 :return true
 }
