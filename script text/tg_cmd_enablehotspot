@@ -3,8 +3,8 @@
 :put $chatid
 :put $from
 
-:local text "All hotspots enabled"
+:local text "Todos los puntos de acceso habilitados"
 
 $send chat=$chatid text=$text mode="Markdown"
-/ip hotspot enable lantai1
-/ip hotspot enable lantai2
+/ip hotspot enable hotspot1
+/ip hotspot enable hotspot2
