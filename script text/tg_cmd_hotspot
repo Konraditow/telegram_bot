@@ -79,7 +79,7 @@ if ($paramsLower = "help") do={
 }
 :if ($param1Lower="add") do={
 	if ([:len [ip hotspot user find where name=$param2]] = 0) do={
-		/ip hotspot user add name=$param2 password=$param3 profile=default
+		/ip hotspot user add name=$param2 password=$param3 profile=VIP
 		$send chat=$chatid text=("Berhasil membuat user baru. Masuk ke hotspot dengan:%0A%0A*Username:* $param2%0A*Password:* $param3") mode="Markdown"
 	} else={
 		$send chat=$chatid text=("User $param2 sudah terpakai, silahkan gunakan nama lain") mode="Markdown"
