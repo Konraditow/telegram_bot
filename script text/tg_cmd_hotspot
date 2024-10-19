@@ -36,6 +36,7 @@
 	:set txt ($txt.">  on _user_0A")
 	:set txt ($txt.">  pwd _<user> _pass_%0A")
         :set txt ($txt.">  set _user perfil_%0A")
+        :set txt ($txt.">  bypass _ip_%0A")
 	$send chat=$chatid text=("$txt") mode="Markdown"
 }
 
@@ -127,5 +128,33 @@ if ($paramsLower = "help") do={
 		$send chat=$chatid text=("Se cambió correctamente la contraseña de $param2.") mode="Markdown"
 	} else={
 		$send chat=$chatid text=("Usuario $param2 no encontrado") mode="Markdown"
+	}
+}
+
+
+:if ($param1Lower="bypass") do={
+	if ([:len [ip hotspot ip-binding find where address=$param2]] > 0) do={
+                /ip hotspot ip-binding add address=$param2 comment=TELEGRAMBYPASScambiameNOW server=hotspot1 type=bypassed [find address=$param2]
+		/ip hotspot ip-binding active remove [find address=$param2]
+		$send chat=$chatid text=("ByPass realizado con exito $param2.") mode="Markdown"
+	} else={
+		$send chat=$chatid text=("ByPass $param2 no encontrado") mode="Markdown"
+	}
+}
+:if ($param1Lower="dbypass") do={
+	if ([:len [ip hotspot ip-binding find where address=$param2]] > 0) do={
+		/ip hotspot ip-binding active remove [find address=$param2]
+		$send chat=$chatid text=("ByPass eliminado $param2.") mode="Markdown"
+	} else={
+		$send chat=$chatid text=("ByPass $param2 no encontrado") mode="Markdown"
+	}
+}
+:if ($param1Lower="bbypass") do={
+	if ([:len [ip hotspot ip-binding find where address=$param2]] > 0) do={
+             /ip hotspot ip-binding add address=$param2 comment=TELEGRAMBYPASSbloqueado server=hotspot1 type=blocked [find address=$param2]
+		/ip hotspot ip-binding active remove [find address=$param2]
+		$send chat=$chatid text=("ByPass bloqueado $param2.") mode="Markdown"
+	} else={
+		$send chat=$chatid text=("ByPass $param2 no encontrado") mode="Markdown"
 	}
 }
