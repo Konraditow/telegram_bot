@@ -29,15 +29,15 @@
 	}
 
 	:if ([/interface ethernet get eth03-lantai-1 running]=true) do={
-		:set eth03status ("Lantai 1 is *CONNECTED*%0A")
+		:set eth03status ("LaN 1 is *CONNECTED*%0A")
 	} else={
-		:set eth03status ("Lantai 1 is *DISCONNECTED*%0A")
+		:set eth03status ("LaN 1 is *DISCONNECTED*%0A")
 	}
 
 	:if ([/interface ethernet get eth04-lantai-2 running]=true) do={
-		:set eth04status ("Lantai 2 is *CONNECTED*%0A")
+		:set eth04status ("LaN 2 is *CONNECTED*%0A")
 	} else={
-		:set eth04status ("Lantai 2 is *DISCONNECTED*%0A")
+		:set eth04status ("LaN 2 is *DISCONNECTED*%0A")
 	}
 
 	:if ([/interface ethernet get eth05-configurator running]=true) do={
