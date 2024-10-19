@@ -14,18 +14,18 @@
 :local upgradeFirmware [/system routerboard get upgrade-firmware]
  
  
-:set reportBody ($reportBody . "Router Reboot Report for $deviceName%0A")
-:set reportBody ($reportBody . "Report generated on $deviceDate at $deviceTime%0A%0A")
+:set reportBody ($reportBody . "Informe de reinicio del enrutador para $deviceName%0A")
+:set reportBody ($reportBody . "Informe generado el $deviceDate a las $deviceTime%0A%0A")
  
-:set reportBody ($reportBody . "Hardware Model: $hwModel%0A")
+:set reportBody ($reportBody . "Modelo de hardware: $hwModel%0A")
 :set reportBody ($reportBody . "RouterOS Version: $rosVersion%0A")
-:set reportBody ($reportBody . "Current Firmware: $currentFirmware%0A")
-:set reportBody ($reportBody . "Upgrade Firmware: $upgradeFirmware")
+:set reportBody ($reportBody . "Firmware actual: $currentFirmware%0A")
+:set reportBody ($reportBody . "Actualizar firmwaree: $upgradeFirmware")
 if ( $currentFirmware < $upgradeFirmware) do={
-:set reportBody ($reportBody . "NOTE: You should upgrade the RouterBOARD firmware!%0A")
+:set reportBody ($reportBody . "NOTA: ¡Debe actualizar el firmware del RouterBOARD!%0A")
 }
  
-:set reportBody ($reportBody . "%0A%0A=== Critical Log Events ===%0A" )
+:set reportBody ($reportBody . "%0A%0A=== Eventos de registro críticos ===%0A" )
  
 :local x
 :local ts
