@@ -14,7 +14,7 @@ MENU%0A\
 > showall > count > sesion%0A\
 /dhcp > lease%0A\
 /interface > showall%0A\
-/ping ip%0A\
+/ping ip _10.0.0.69_%0A\
 /public%0A\
 /monitoring > interface <interface> > cpu > ram > memory%0A\
 /enablehotspot  /disablehotspot%0A\
