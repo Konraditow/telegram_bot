@@ -18,6 +18,7 @@ MENU%0A\
 > showall > count > session%0A\
 /ping ip%0A\
 /public%0A\
+/monitoring > interface <interface> > cpu > ram > memory%0A\
 /enablehotspot  /disablehotspot%0A\
 /forceupdateddns%0A\
 /reboot"
