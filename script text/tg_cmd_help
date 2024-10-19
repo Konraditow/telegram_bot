@@ -9,17 +9,17 @@
 MENU%0A\
 ==================%0A\
 /hotspot%0A\
-> add user pwd > delete user > enable user > disable user > setprofile user profile > change-password user pwd%0A\
-> deauth-by-ip ip > deauth-by-mac mac > deauth-by-user user%0A\
-> showall > count > session%0A\
+> add user pwd > del user > on user > off user > set user perfil > pwd user pwd%0A\
+> dip ip > dmac mac > duser user%0A\
+> showall > count > sesion%0A\
 /dhcp > lease%0A\
-/cpu%0A\
 /interface > showall%0A\
 /ping ip%0A\
 /public%0A\
 /monitoring > interface <interface> > cpu > ram > memory%0A\
 /enablehotspot  /disablehotspot%0A\
 /forceupdateddns%0A\
+/cpu%0A\
 /reboot"
  
 $send chat=$chatid text=$text mode="Markdown"
