@@ -38,7 +38,7 @@
     :local fconfig [:parse [/system script get tg_config source]]
     :local config [$fconfig]
     :local botID ($config->"botAPI")
-    :local url ("https://api.telegram.org/bot".$botID."/sendMessage\?chat_id=$chatid&text=Preparing...")
+    :local url ("https://api.telegram.org/bot".$botID."/sendMessage\?chat_id=$chatid&text=Preparando...")
     :put $url
     :local fetching ([/tool fetch url=$url output=user as-value]->"data")
     :local msgID [$gkey key="message_id" text=$fetching]
