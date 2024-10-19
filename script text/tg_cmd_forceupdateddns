@@ -3,7 +3,7 @@
 :put $chatid
 :put $from
 
-:local text "Force Update DDNS"
+:local text "Forzar actualización DDNS"
 
 $send chat=$chatid text=$text mode="Markdown"
 /ip cloud force-update
