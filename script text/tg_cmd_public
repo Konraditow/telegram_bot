@@ -11,7 +11,7 @@
 
 :set ddns [/ip cloud get dns-name];
 
-:local text "DDNS : $ddns : IP Public : $public"
+:local text "IP Publica : $public > DDNS : $ddns "
 
 
 $send chat=$chatid text=$text mode="Markdown"
