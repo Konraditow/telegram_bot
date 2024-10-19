@@ -24,17 +24,18 @@
 :local sendHelp do={
 	:local send [:parse [/system script get tg_sendMessage source]]
 	:local txt 
-	:set txt ("*Daftar parameter:*%0A%0A")
-	:set txt ($txt.">  session count - Menampilkan jumlah user yang sedang aktif %0ACth: _/hotspot session showall_%0A")
-	:set txt ($txt.">  session showall - Menampilkan seluruh detail user yang sedang aktif %0ACth: _/hotspot session showall_%0A")
-	:set txt ($txt.">  session deauth-by-user _<username>_ - Mencabut sesi perangkat berdasarkan Username. %0ACth: _/hotspot session deauth-by-user admin_%0A")
-	:set txt ($txt.">  session deauth-by-ip _<ip>_ - Mencabut sesi perangkat berdasarkan Alamat IP. %0ACth: _/hotspot session deauth-by-ip 192.168.1.1_%0A")
-	:set txt ($txt.">  session deauth-by-mac _<mac>_ - Mencabut sesi perangkat berdasarkan Alamat MAC. %0ACth: _/hotspot session deauth-by-mac AB:CD:EF:01:23:45_%0A")
-	:set txt ($txt.">  add _<user> <password>_ - Menambah user baru. %0ACth: _/hotspot add admin admin123_%0A")
-	:set txt ($txt.">  delete _<user>_ - Menghapus user. %0ACth: _/hotspot delete admin _%0A")
-	:set txt ($txt.">  disable _<user>_ - menonaktifkan user. %0ACth: _/hotspot disable admin _%0A")
-	:set txt ($txt.">  enable _<user>_ - mengaktifkan user. %0ACth: _/hotspot enable admin _%0A")
-	:set txt ($txt.">  change-password _<user> <new-pass>_ - mengganti password user. %0ACth: _/hotspot change-password admin  p4sSw_%0A%0A")
+	:set txt ("*HOTSPOT:*%0A%0A")
+	:set txt ($txt.">  sesion _count_%0A")
+	:set txt ($txt.">  sesion _showall_%0A")
+	:set txt ($txt.">  sesion duser _user_%0A")
+	:set txt ($txt.">  sesion dip _ip_%0A")
+	:set txt ($txt.">  sesion dmac _mac_%0A")
+	:set txt ($txt.">  add _user pwd_%0A")
+	:set txt ($txt.">  del _user_%0A")
+	:set txt ($txt.">  off _user_%0A")
+	:set txt ($txt.">  on _user_0A")
+	:set txt ($txt.">  pwd _<user> _pass_%0A")
+        :set txt ($txt.">  set _user perfil_%0A")
 	$send chat=$chatid text=("$txt") mode="Markdown"
 }
 
@@ -42,11 +43,11 @@ if ($paramsLower = "help") do={
 	$sendHelp
 }
 
-:if ($param1Lower="session") do={
+:if ($param1Lower="sesion") do={
 	:if ($param2Lower="count") do={
 		:local output
 		:local hotspot [:len [/ip hotspot active find]]
-		:local text "Router ID:* $[/system identity get name] * %0A\
+		:local text "ID:* $[/system identity get name] * %0A\
 		Hotspot users: _$hotspot online_"
 		$send chat=$chatid text=$text mode="Markdown"
 	}
@@ -64,29 +65,29 @@ if ($paramsLower = "help") do={
 		}
 		$send chat=$chatid text=("$output") mode="Markdown"
 	}
-	:if ($param2Lower="deauth-by-user") do={
+	:if ($param2Lower="duser") do={
 		/ip hotspot active remove [find user="$param3"]
-		$send chat=$chatid text=("Sesi User $param3 berhasil dihapus") mode="Markdown"
+		$send chat=$chatid text=("Usuario $param3 eliminado exitosamente") mode="Markdown"
 	}
-	:if ($param2Lower="deauth-by-mac") do={
+	:if ($param2Lower="dmac") do={
 		/ip hotspot active remove [find mac-address="$param3"]
-		$send chat=$chatid text=("Sesi MAC $param3 berhasil dihapus") mode="Markdown"
+		$send chat=$chatid text=("MAC $param3 eliminado exitosamente") mode="Markdown"
 	}
-	:if ($param2Lower="deauth-by-ip") do={
+	:if ($param2Lower="dip") do={
 		/ip hotspot active remove [find address="$param3"]
-		$send chat=$chatid text=("Sesi IP $param3 berhasil dihapus") mode="Markdown"
+		$send chat=$chatid text=("IP $param3 eliminado exitosamente") mode="Markdown"
 	}
 }
 :if ($param1Lower="add") do={
 	if ([:len [ip hotspot user find where name=$param2]] = 0) do={
 		/ip hotspot user add name=$param2 password=$param3 profile=VIP
-		$send chat=$chatid text=("Berhasil membuat user baru. Masuk ke hotspot dengan:%0A%0A*Username:* $param2%0A*Password:* $param3") mode="Markdown"
+		$send chat=$chatid text=("Generado :%0A%0A*User:* $param2%0A*Pwd:* $param3") mode="Markdown"
 	} else={
-		$send chat=$chatid text=("User $param2 sudah terpakai, silahkan gunakan nama lain") mode="Markdown"
+		$send chat=$chatid text=("Genere otro diferente: $param2") mode="Markdown"
 	}
 	
 }
-:if ($param1Lower="delete") do={
+:if ($param1Lower="del") do={
 	if ([:len [ip hotspot user find where name=$param2]] > 0) do={
 		/ip hotspot user remove [find name=$param2]
 		$send chat=$chatid text=("Berhasil menghapus user $param2.") mode="Markdown"
@@ -94,7 +95,7 @@ if ($paramsLower = "help") do={
 		$send chat=$chatid text=("User $param2 tidak ditemukan") mode="Markdown"
 	}
 }
-:if ($param1Lower="disable") do={
+:if ($param1Lower="off") do={
 	if ([:len [ip hotspot user find where name=$param2]] > 0) do={
 		/ip hotspot user disable [find name=$param2]
 		$send chat=$chatid text=("$param2 kini telah dinonaktifkan") mode="Markdown"
@@ -102,7 +103,7 @@ if ($paramsLower = "help") do={
 		$send chat=$chatid text=("User $param2 tidak ditemukan") mode="Markdown"
 	}
 }
-:if ($param1Lower="enable") do={
+:if ($param1Lower="on") do={
 	if ([:len [ip hotspot user find where name=$param2]] > 0) do={
 	/ip hotspot user enable [find name=$param2]
 	$send chat=$chatid text=("$param2 kini telah diaktifkan") mode="Markdown"
@@ -110,7 +111,7 @@ if ($paramsLower = "help") do={
 		$send chat=$chatid text=("User $param2 tidak ditemukan") mode="Markdown"
 	}
 }
-:if ($param1Lower="setprofile") do={
+:if ($param1Lower="set") do={
 	if ([:len [ip hotspot user find where name=$param2]] > 0) do={
 		/ip hotspot user set password=$param3 [find name=$param2]
 		/ip hotspot active remove [find name=$param2]
@@ -119,12 +120,12 @@ if ($paramsLower = "help") do={
 		$send chat=$chatid text=("User $param2 tidak ditemukan") mode="Markdown"
 	}
 }
-:if ($param1Lower="change-password") do={
+:if ($param1Lower="pwd") do={
 	if ([:len [ip hotspot user find where name=$param2]] > 0) do={
 		/ip hotspot user set password=$param3 [find name=$param2]
 		/ip hotspot active remove [find name=$param2]
-		$send chat=$chatid text=("Berhasil mengganti password untuk $param2.") mode="Markdown"
+		$send chat=$chatid text=("Se cambió correctamente la contraseña de $param2.") mode="Markdown"
 	} else={
-		$send chat=$chatid text=("User $param2 tidak ditemukan") mode="Markdown"
+		$send chat=$chatid text=("Usuario $param2 no encontrado") mode="Markdown"
 	}
 }
