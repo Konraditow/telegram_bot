@@ -16,7 +16,7 @@ MENU%0A\
 > add user pwd > delete user > enable user > disable user > setprofile user profile > change-password user pwd%0A\
 > deauth-by-ip ip > deauth-by-mac mac > deauth-by-user user%0A\
 > showall > count > session%0A\
-/ping to <ip>%0A\
+/ping ip%0A\
 /public%0A\
 /enablehotspot  /disablehotspot%0A\
 /forceupdateddns%0A\
